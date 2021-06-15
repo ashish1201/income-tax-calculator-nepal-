@@ -1,0 +1,47 @@
+Option Explicit
+Function tax(x As Double) As Variant
+Dim tempArr As Variant
+ReDim tempArr(1 To 5, 1 To 2)
+If x >= 2000000 Then
+    tempArr(1, 1) = 400000
+    tempArr(1, 2) = 4000
+    tempArr(2, 1) = 100000
+    tempArr(2, 2) = 10000
+    tempArr(3, 1) = 200000
+    tempArr(3, 2) = 40000
+    tempArr(4, 1) = 1300000
+    tempArr(4, 2) = 390000
+    tempArr(5, 1) = x - 2000000
+    tempArr(5, 2) = (x - 2000000) * 0.36
+    'tax = (x - 2000000) * 0.36 + 444000
+ElseIf x >= 700000 Then
+    tempArr(1, 1) = 400000
+    tempArr(1, 2) = 4000
+    tempArr(2, 1) = 100000
+    tempArr(2, 2) = 10000
+    tempArr(3, 1) = 200000
+    tempArr(3, 2) = 40000
+    tempArr(4, 1) = (x - 700000)
+    tempArr(4, 2) = (x - 700000) * 0.3
+    'tax = (x - 700000) * 0.3 + 54000
+ElseIf x >= 500000 Then
+    tempArr(1, 1) = 400000
+    tempArr(1, 2) = 4000
+    tempArr(2, 1) = 100000
+    tempArr(2, 2) = 10000
+    tempArr(3, 1) = (x - 500000)
+    tempArr(3, 2) = (x - 500000) * 0.2
+    'tax = (x - 500000) * 0.2 + 14000
+ElseIf x >= 400000 Then
+    tempArr(1, 1) = 400000
+    tempArr(1, 2) = 4000
+    tempArr(2, 1) = (x - 400000)
+    tempArr(2, 2) = (x - 400000) * 0.1
+    'tax = (x - 400000) * 0.1 + 4000
+Else
+    tempArr(1, 1) = x
+    tempArr(1, 2) = x * 0.01
+    'tax = x * 0.01
+End If
+tax = tempArr
+End Function
